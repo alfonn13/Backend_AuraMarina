@@ -23,7 +23,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/usuarios")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com/")
 public class ControladorUsuario {
     private final InterfazServicioUsuario servicioUsuario;
 
