@@ -39,6 +39,7 @@ public class ControladorReservas {
      * @return Una respuesta HTTP con una lista de todas las reservas.
      */
     @GetMapping("/todas-reservas")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<List<RespuestaReserva>> obtenerTodasLasReservas(){
         List<HabitacionReservada> reservas = servicioReservas.obtenerTodasLasReservas();
         List<RespuestaReserva> respuestasReserva = new ArrayList<>();
@@ -57,6 +58,7 @@ public class ControladorReservas {
      * @return Una respuesta HTTP con el código de confirmación de la reserva.
      */
     @PostMapping("/habitacion/{idHabitacion}/reserva")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<?> guardarReserva(@PathVariable Long idHabitacion,
                                             @RequestBody HabitacionReservada solicitudReserva){
         try{
@@ -77,6 +79,7 @@ public class ControladorReservas {
      * @return Una respuesta HTTP con los detalles de la reserva.
      */
     @GetMapping("/confirmacion/{codigoConfirmacion}")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<?> obtenerReservaPorCodigoConfirmacion(@PathVariable String codigoConfirmacion){
         try{
             HabitacionReservada reserva = servicioReservas.obtenerReservaPorCodigoConfirmacion(codigoConfirmacion);
@@ -94,6 +97,7 @@ public class ControladorReservas {
      * @return Una respuesta HTTP con una lista de las reservas del usuario.
      */
     @GetMapping("/usuario/{correoElectronico}/reservas")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<List<RespuestaReserva>> obtenerReservasPorCorreoElectronico(@PathVariable String correoElectronico) {
         List<HabitacionReservada> reservas = servicioReservas.obtenerReservasPorCorreoElectronico(correoElectronico);
         List<RespuestaReserva> respuestasReserva = new ArrayList<>();
@@ -111,6 +115,7 @@ public class ControladorReservas {
      * @param idReserva El ID de la reserva a cancelar.
      */
     @DeleteMapping("/reserva/{idReserva}/eliminar")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public void cancelarReserva(@PathVariable Long idReserva){
         servicioReservas.cancelarReserva(idReserva);
     }
@@ -138,6 +143,7 @@ public class ControladorReservas {
      * @return Una respuesta HTTP con los detalles de la reserva confirmada.
      */
     @PostMapping("/confirmar")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<?> confirmarReserva(@RequestBody Map<String, Object> data) throws StripeException {
         String sessionId = (String) data.get("sessionId");
         HabitacionReservada reserva = servicioReservas.confirmarReserva(sessionId);

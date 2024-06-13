@@ -52,6 +52,7 @@ public class ControladorHabitacion {
      * @return Una respuesta HTTP con los detalles de la habitación agregada.
      */
     @PostMapping("/agregar/nueva-habitacion")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<RespuestaHabitacion> agregarNuevaHabitacion(@RequestParam("foto") MultipartFile foto,
                                                                       @RequestParam("tipoHabitacion") String tipoHabitacion,
@@ -70,6 +71,7 @@ public class ControladorHabitacion {
      * @return Una lista con todos los tipos de habitaciones.
      */
     @GetMapping("/tipos-habitacion")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public List<String> obtenerTiposHabitacion() {
         return servicioHabitacion.obtenerTodosTiposHabitacion();
     }
@@ -80,6 +82,7 @@ public class ControladorHabitacion {
      * @return Una respuesta HTTP con una lista de todas las habitaciones.
      */
     @GetMapping("/todas-habitaciones")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<List<RespuestaHabitacion>> obtenerTodasHabitaciones() throws SQLException, ExcepcionRecuperarFoto {
         List<Habitacion> habitaciones = servicioHabitacion.obtenerTodasHabitaciones();
         List<RespuestaHabitacion> respuestasHabitacion = new ArrayList<>();
@@ -99,6 +102,7 @@ public class ControladorHabitacion {
      */
     @DeleteMapping("/eliminar/habitacion/{idHabitacion}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<Void> eliminarHabitacion(@PathVariable Long idHabitacion) {
         servicioHabitacion.eliminarHabitacion(idHabitacion);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -116,6 +120,7 @@ public class ControladorHabitacion {
      */
     @PutMapping("/actualizar/{idHabitacion}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<RespuestaHabitacion> actualizarHabitacion(@PathVariable Long idHabitacion,
                                                                     @RequestParam(required = false) String tipoHabitacion,
                                                                     @RequestParam(required = false) BigDecimal precioHabitacion,
@@ -138,6 +143,7 @@ public class ControladorHabitacion {
      * @return Una respuesta HTTP con los detalles de la habitación solicitada.
      */
     @GetMapping("/habitacion/{idHabitacion}")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<Optional<RespuestaHabitacion>> obtenerHabitacionPorId(@PathVariable Long idHabitacion) throws SQLException {
         Optional<Habitacion> laHabitacion = servicioHabitacion.obtenerHabitacionPorId(idHabitacion);
 
@@ -179,6 +185,7 @@ public class ControladorHabitacion {
      * @return Una respuesta HTTP con una lista de las habitaciones disponibles.
      */
     @GetMapping("/habitaciones-disponibles")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<List<RespuestaHabitacion>> obtenerHabitacionesDisponibles(
             @RequestParam("fechaEntrada") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaEntrada,
             @RequestParam("fechaSalida") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaSalida,

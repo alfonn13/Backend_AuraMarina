@@ -33,6 +33,7 @@ public class ControladorUsuario {
      * @return Una respuesta HTTP con una lista de todos los usuarios.
      */
     @GetMapping("/todos")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<Usuario>> obtenerUsuarios(){
         return new ResponseEntity<>(servicioUsuario.obtenerUsuarios(), HttpStatus.FOUND);
@@ -45,6 +46,7 @@ public class ControladorUsuario {
      * @return Una respuesta HTTP con los detalles del usuario solicitado.
      */
     @GetMapping("/{correo}")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> obtenerUsuarioPorCorreo(@PathVariable("correo") String correo){
         try{

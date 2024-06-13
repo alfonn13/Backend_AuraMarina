@@ -41,6 +41,8 @@ public class ControladorStripe {
      * @throws StripeException Si ocurre un error al crear la sesión de pago.
      */
     @PostMapping("/create-checkout-session")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
+
     public ResponseEntity<RespuestaPago> createCheckoutSession(@RequestBody Map<String, Object> data) throws StripeException {
         try {
             System.out.println("Datos recibidos: " + data);

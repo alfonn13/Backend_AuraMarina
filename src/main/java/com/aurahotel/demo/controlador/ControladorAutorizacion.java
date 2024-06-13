@@ -43,6 +43,7 @@ public class ControladorAutorizacion {
      * @return Una respuesta HTTP indicando el resultado del registro.
      */
     @PostMapping("/registrar-usuario")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<?> registrarUsuario(@RequestBody Usuario usuario) {
         try {
             servicioUsuario.registrarUsuario(usuario);
@@ -59,6 +60,7 @@ public class ControladorAutorizacion {
      * @return Una respuesta HTTP con el token JWT si la autenticación es exitosa.
      */
     @PostMapping("/inicio-sesion")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<?> autenticarUsuario(@Valid @RequestBody LoginRequest solicitud) {
         Authentication autenticacion =
                 administradorAutenticacion.authenticate(

@@ -31,6 +31,7 @@ public class ControladorRol {
      * @return Una respuesta HTTP con una lista de todos los roles.
      */
     @GetMapping("/todos")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<List<Rol>> obtenerTodosLosRoles() {
         return new ResponseEntity<>(servicioRol.obtenerRoles(), HttpStatus.FOUND);
     }
@@ -42,6 +43,7 @@ public class ControladorRol {
      * @return Una respuesta HTTP indicando el resultado de la operación.
      */
     @PostMapping("/crear-nuevo-rol")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public ResponseEntity<String> crearRol(@RequestBody Rol elRol) {
         try {
             servicioRol.crearRol(elRol);
@@ -57,6 +59,7 @@ public class ControladorRol {
      * @param idRol El ID del rol a eliminar.
      */
     @DeleteMapping("/eliminar/{idRol}")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public void eliminarRol(@PathVariable("idRol") Long idRol) {
         servicioRol.eliminarRol(idRol);
     }
@@ -68,6 +71,7 @@ public class ControladorRol {
      * @return El rol después de eliminar todos los usuarios.
      */
     @PostMapping("/eliminar-todos-los-usuarios-de-rol/{idRol}")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public Rol eliminarTodosLosUsuariosDeRol(@PathVariable("idRol") Long idRol) {
         return servicioRol.eliminarTodosLosUsuariosDeRol(idRol);
     }
@@ -80,6 +84,7 @@ public class ControladorRol {
      * @return El usuario después de ser eliminado del rol.
      */
     @PostMapping("/eliminar-usuario-de-rol")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public Usuario eliminarUsuarioDeRol(
             @RequestParam("idUsuario") Long idUsuario,
             @RequestParam("idRol") Long idRol) {
@@ -94,6 +99,7 @@ public class ControladorRol {
      * @return El usuario después de ser asignado al rol.
      */
     @PostMapping("/asignar-usuario-a-rol")
+    @CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com")
     public Usuario asignarUsuarioARol(
             @RequestParam("idUsuario") Long idUsuario,
             @RequestParam("idRol") Long idRol) {
