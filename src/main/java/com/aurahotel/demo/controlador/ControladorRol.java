@@ -21,7 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/roles")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com/")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ControladorRol {
     private final InterfazServicioRol servicioRol;
 

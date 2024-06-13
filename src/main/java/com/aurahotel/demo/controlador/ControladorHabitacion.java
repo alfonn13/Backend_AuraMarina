@@ -36,7 +36,7 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/habitaciones")
-@CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com/")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ControladorHabitacion {
 
     private final InterfazServicioHabitacion servicioHabitacion;

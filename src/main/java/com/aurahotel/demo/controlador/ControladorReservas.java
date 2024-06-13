@@ -25,7 +25,7 @@ import java.util.Map;
  * Controlador para la gestión de reservas.
  * Proporciona endpoints para obtener, guardar, confirmar y cancelar reservas.
  */
-@CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com/")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/reservas")
