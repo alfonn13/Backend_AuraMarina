@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://eu-cluster-west-01.k8s.cleardb.net/heroku_9ed50507486b632?reconnect=true}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://bef947396f68a4:f55561ba@eu-cluster-west-01.k8s.cleardb.net/heroku_9ed50507486b632?reconnect=true}
     username: ${SPRING_DATASOURCE_USERNAME:bef947396f68a4}
     password: ${SPRING_DATASOURCE_PASSWORD:f55561ba}
     driver-class-name: com.mysql.cj.jdbc.Driver
