@@ -29,7 +29,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/autorizacion")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://auramarina-frontend-72dbe95daf37.herokuapp.com/")
 @RequiredArgsConstructor
 public class ControladorAutorizacion {
     private final InterfazServicioUsuario servicioUsuario;
